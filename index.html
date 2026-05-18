@@ -1,8 +1,1015 @@
-<div style="position: relative; width: 100%; height: 0; padding-top: 56.2225%;
- padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
- border-radius: 8px; will-change: transform;">
-  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAHBXxZUUqo/r7-2ti4gH1H780pdfIPh2w/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-</div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAHBXxZUUqo&#x2F;r7-2ti4gH1H780pdfIPh2w&#x2F;view?utm_content=DAHBXxZUUqo&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">Yvette Atelier KDP</a> by Iting Keol
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDP AI Pack - Belajar Amazon KDP Pakai AI</title>
+    <style>
+        /* --- BASE STYLES & RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0a0a0a;
+            color: #e5e5e5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vi;
+        }
+        ::selection {
+            background-color: rgba(99, 102, 241, 0.3);
+            color: #c7d2fe;
+        }
+
+        /* --- UTILITIES & LAYOUT --- */
+        .max-w-5xl { max-w: 1024px; margin: 0 auto; }
+        .max-w-4xl { max-w: 896px; margin: 0 auto; }
+        .max-w-lg { max-w: 512px; margin: 0 auto; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        
+        /* --- DYNAMIC FLOATING GLOWS --- */
+        .glow-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-w: 1280px;
+            height: 800px;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .glow-1 {
+            position: absolute;
+            top: -10%;
+            left: 20%;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background-color: rgba(79, 70, 229, 0.1);
+            filter: blur(130px);
+        }
+        .glow-2 {
+            position: absolute;
+            top: 15%;
+            right: 15%;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: rgba(124, 58, 237, 0.1);
+            filter: blur(150px);
+        }
+
+        /* --- FLOATING NOTIFICATION --- */
+        .notification {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            z-index: 50;
+            background-color: rgba(23, 23, 23, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+            animation: bounce 2s infinite ease-in-out;
+        }
+        .notification-dot-container {
+            position: relative;
+            width: 10px;
+            height: 10px;
+        }
+        .notification-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #818cf8;
+        }
+        .notification-ping {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #818cf8;
+            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+        }
+        .notification text {
+            font-size: 12px;
+            font-weight: 500;
+            color: #d4d4d4;
+        }
+
+        /* --- HEADER --- */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(12px);
+            border-b: 1px solid #171717;
+        }
+        .header-container {
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo-box {
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            background: linear-gradient(to top right, #6366f1, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-box span {
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .logo-text {
+            font-weight: bold;
+            font-size: 14px;
+            letter-spacing: -0.025em;
+            color: white;
+        }
+        .btn-header {
+            display: inline-block;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            border-radius: 9999px;
+            background-color: #171717;
+            border: 1px solid #262626;
+            color: #d4d4d4;
+            transition: all 0.2s;
+        }
+        .btn-header:hover {
+            color: white;
+            background-color: #262626;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            position: relative;
+            z-index: 10;
+            padding-top: 64px;
+            padding-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 48px;
+        }
+        @media (min-width: 768px) {
+            .hero-section {
+                flex-direction: row;
+                padding-top: 112px;
+                padding-bottom: 112px;
+            }
+        }
+        .hero-left {
+            flex: 1;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .hero-left { text-align: left; }
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+        @media (min-width: 768px) {
+            .badge-container { justify-content: flex-start; }
+        }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .badge-indigo { background-color: rgba(99, 102, 241, 0.1); color: #a5b4fc; border: 1px solid rgba(99, 102, 241, 0.2); }
+        .badge-violet { background-color: rgba(124, 58, 237, 0.1); color: #c4b5fd; border: 1px solid rgba(124, 58, 237, 0.2); }
+        .badge-blue { background-color: rgba(59, 130, 246, 0.1); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.2); }
+        
+        .hero-title {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: white;
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+        @media (min-width: 768px) { .hero-title { font-size: 48px; } }
+        @media (min-width: 1024px) { .hero-title { font-size: 60px; } }
+        
+        .gradient-text {
+            background: linear-gradient(to right, #818cf8, #c4b5fd, #d8b4fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-desc {
+            font-size: 14px;
+            color: #a3a3a3;
+            max-width: 576px;
+            margin: 0 auto 32px auto;
+            line-height: 1.625;
+        }
+        @media (min-width: 768px) { .hero-desc { font-size: 16px; margin-left: 0; } }
+        
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            justify-content: center;
+            width: 100%;
+        }
+        @media (min-width: 640px) { .btn-container { flex-direction: row; } }
+        @media (min-width: 768px) { .btn-container { justify-content: flex-start; } }
+        
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 100%;
+            padding: 16px 32px;
+            border-radius: 12px;
+            background: linear-gradient(to right, #6366f1, #7c3aed);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @media (min-width: 640px) { .btn-primary { width: auto; } }
+        .btn-primary:hover {
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.35);
+            transform: scale(1.01);
+        }
+        .btn-primary:active { transform: scale(0.99); }
+        .btn-primary svg {
+            margin-left: 8px;
+            transition: transform 0.2s;
+        }
+        .btn-primary:hover svg {
+            transform: translateX(4px);
+        }
+
+        /* --- HERO RIGHT: PREMIUM 3D MOCKUP --- */
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+        }
+        .backglow {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(99, 102, 241, 0.1);
+            filter: blur(64px);
+            border-radius: 50%;
+            transform: scale(0.75);
+            pointer-events: none;
+        }
+        .perspective-container {
+            perspective: 1000px;
+            width: 240px;
+            height: 330px;
+            position: relative;
+        }
+        .book-card {
+            width: 100%;
+            height: 100%;
+            border-radius: 0 16px 16px 0;
+            background: linear-gradient(to bottom right, #0f113a, #171717, #1e0f3a);
+            border-top: 1px solid rgba(99, 102, 241, 0.25);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.25);
+            border-right: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transform: rotateY(-12deg) rotateX(6deg);
+            transition: transform 0.5s ease;
+        }
+        .perspective-container:hover .book-card {
+            transform: rotateY(0deg) rotateX(0deg);
+        }
+        .book-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .book-header span {
+            font-size: 10px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #818cf8;
+            font-weight: bold;
+        }
+        .book-body {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+        .book-body .subtitle {
+            font-size: 10px;
+            color: #525252;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .book-body h3 {
+            font-size: 24px;
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 8px;
+        }
+        .book-body h3 span { color: #818cf8; }
+        .book-body .desc { font-size: 9px; color: #a3a3a3; }
+        
+        .book-footer {
+            padding-top: 16px;
+            border-top: 1px solid #262626;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .book-footer .left p:first-child { font-size: 8px; color: #525252; }
+        .book-footer .left p:last-child { font-size: 10px; color: white; font-weight: bold; }
+        .book-indicator {
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            background-color: rgba(99, 102, 241, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .book-indicator div { width: 8px; height: 8px; border-radius: 50%; background-color: #818cf8; }
+        .book-pages {
+            position: absolute;
+            top: 4px;
+            right: -8px;
+            width: 8px;
+            height: 322px;
+            background-color: #262626;
+            border-right: 1px solid #404040;
+            border-top: 1px solid #404040;
+            border-bottom: 1px solid #404040;
+            border-radius: 0 4px 4px 0;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        /* --- SECTION 2: EXPLANATION --- */
+        .explanation-section {
+            background-color: rgba(23, 23, 23, 0.5);
+            border-top: 1px solid #171717;
+            border-bottom: 1px solid #171717;
+            padding: 64px 0;
+        }
+        .section-center-text { text-align: center; margin-bottom: 48px; }
+        .section-center-text h2 { font-size: 20px; font-weight: bold; color: white; margin-bottom: 12px; }
+        @media (min-width: 768px) { .section-center-text h2 { font-size: 24px; } }
+        .section-center-text p { font-size: 14px; color: #a3a3a3; max-width: 512px; margin: 0 auto; line-height: 1.625; }
+        
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+        @media (min-width: 768px) { .grid-features { grid-template-columns: repeat(4, 1fr); } }
+        .feature-item { padding: 16px; }
+        .feature-icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px auto;
+        }
+        .feature-icon-box.indigo { background-color: rgba(99, 102, 241, 0.1); color: #818cf8; }
+        .feature-icon-box.purple { background-color: rgba(168, 85, 247, 0.1); color: #c084fc; }
+        .feature-icon-box.blue { background-color: rgba(59, 130, 246, 0.1); color: #60a5fa; }
+        .feature-icon-box.emerald { background-color: rgba(16, 185, 129, 0.1); color: #34d399; }
+        
+        .feature-item h4 { font-size: 14px; font-weight: 600; color: white; margin-bottom: 4px; }
+        .feature-item p { font-size: 12px; color: #737373; }
+
+        /* --- SECTION 3: ISI EBOOK --- */
+        .content-section { padding: 80px 0; }
+        .tagline { display: block; font-size: 12px; font-weight: bold; letter-spacing: 0.1em; text-transform: uppercase; color: #818cf8; margin-bottom: 4px; }
+        .grid-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 48px;
+        }
+        @media (min-width: 768px) { .grid-content { grid-template-columns: repeat(3, 1fr); } }
+        .content-card {
+            padding: 24px;
+            border-radius: 16px;
+            background-color: #171717;
+            border: 1px solid #262626;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s;
+        }
+        .content-card:hover {
+            border-color: rgba(99, 102, 241, 0.25);
+            transform: translateY(-4px);
+        }
+        @media (min-width: 768px) { .content-card.span-all { grid-column: span 3; } }
+        .content-card .num { font-size: 10px; font-weight: bold; color: #818cf8; font-family: monospace; }
+        .content-card h3 { font-size: 16px; font-weight: bold; color: white; margin-top: 4px; margin-bottom: 8px; }
+        .content-card p { font-size: 12px; color: #a3a3a3; line-height: 1.625; }
+
+        /* --- SECTION 4: INTEGRATION SHOWCASE --- */
+        .apps-section {
+            background-color: rgba(23, 23, 23, 0.3);
+            border-top: 1px solid #171717;
+            border-bottom: 1px solid #171717;
+            padding: 80px 0;
+        }
+        .grid-apps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+        @media (min-width: 768px) { .grid-apps { grid-template-columns: repeat(6, 1fr); } }
+        .app-card {
+            padding: 20px;
+            border-radius: 16px;
+            background-color: #0a0a0a;
+            border: 1px solid #171717;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: border-color 0.2s;
+        }
+        .app-card:hover { border-color: #262626; }
+        .app-card .app-name { font-size: 12px; font-weight: 800; color: #d4d4d4; display: block; }
+        .app-card .app-role { font-size: 10px; color: #525252; font-family: monospace; display: block; margin-top: 8px; }
+
+        /* --- SECTION 5: SOCIAL PROOF --- */
+        .proof-section { padding: 80px 0; }
+        .grid-proof {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        @media (min-width: 768px) { .grid-proof { grid-template-columns: repeat(2, 1fr); } }
+        .proof-card {
+            position: relative;
+            border-radius: 16px;
+            background-color: #171717;
+            border: 1px solid #262626;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s;
+        }
+        .proof-card:hover { border-color: rgba(99, 102, 241, 0.2); }
+        .proof-card-header {
+            padding: 12px 16px;
+            background-color: #0a0a0a;
+            border-bottom: 1px solid #171717;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .proof-card-header .title { font-size: 10px; font-family: monospace; color: #737373; }
+        .proof-card-header .value {
+            font-size: 10px;
+            font-family: monospace;
+            color: #34d399;
+            font-weight: bold;
+            background-color: rgba(16, 185, 129, 0.1);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        .proof-card-body {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to bottom, #171717, #0a0a0a);
+        }
+        .proof-icon-container {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(99, 102, 241, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #818cf8;
+            margin-bottom: 16px;
+        }
+        .proof-card-body h4 { font-size: 12px; font-weight: 600; color: #d4d4d4; text-align: center; margin-bottom: 24px; }
+        .btn-view-proof {
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #d4d4d4;
+            background-color: #0a0a0a;
+            border: 1px solid #171717;
+            border-radius: 8px;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+        .btn-view-proof:hover { border-color: rgba(99, 102, 241, 0.25); color: white; }
+        .proof-footer-note { text-align: center; font-size: 11px; color: #525252; margin-top: 24px; font-style: italic; }
+
+        /* --- SECTION 6: PRICING & CTA --- */
+        .pricing-section {
+            position: relative;
+            z-index: 10;
+            padding: 64px 0;
+            text-align: center;
+        }
+        .pricing-backglow {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(99, 102, 241, 0.05);
+            filter: blur(64px);
+            border-radius: 50%;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+        .pricing-box {
+            position: relative;
+            padding: 32px;
+            border-radius: 24px;
+            background-color: #171717;
+            border: 1px solid #262626;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        .pricing-box .box-badge {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: #818cf8;
+            background-color: rgba(99, 102, 241, 0.1);
+            padding: 4px 12px;
+            border-radius: 9999px;
+        }
+        .pricing-box h3 { font-size: 24px; font-weight: 800; color: white; margin-top: 24px; margin-bottom: 4px; }
+        .pricing-box .sub { font-size: 12px; color: #525252; margin-bottom: 32px; }
+        
+        .price-container { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; margin-bottom: 32px; }
+        .price-container .slashed { color: #525252; text-decoration: line-through; font-size: 14px; font-weight: 500; }
+        .price-main { display: flex; align-items: baseline; gap: 4px; }
+        .price-main .amount { font-size: 48px; font-weight: 900; color: white; }
+        .price-main .currency { font-size: 12px; color: #525252; font-family: monospace; }
+        
+        .btn-pricing {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            width: 100%;
+            padding: 16px 32px;
+            border-radius: 12px;
+            background: linear-gradient(to right, #6366f1, #7c3aed);
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.2);
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-pricing:hover {
+            background: linear-gradient(to right, #4f46e5, #6d28d9);
+            transform: scale(1.01);
+        }
+        .btn-pricing:active { transform: scale(0.99); }
+        .pricing-box .footer-info { font-size: 10px; color: #525252; margin-top: 16px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+        /* --- FOOTER --- */
+        footer { border-top: 1px solid #171717; background-color: #0a0a0a; padding: 48px 0; text-align: center; font-size: 12px; color: #525252; }
+        footer .footer-inner { max-w: 896px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+        footer p { max-w: 448px; margin: 0 auto; line-height: 1.625; }
+        footer .copyright { font-size: 10px; color: #262626; }
+
+        /* --- KEYFRAMES & ANIMATIONS --- */
+        @keyframes ping {
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+        
+        /* Utility SVG Styling */
+        .svg-icon { width: 24px; height: 24px; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; stroke-linejoin: round; display: inline-block; vertical-align: middle; }
+        .w-4 { width: 16px; height: 16px; }
+        .w-5 { width: 20px; height: 20px; }
+        .w-6 { width: 24px; height: 24px; }
+        .mr-1 { margin-right: 4px; }
+        .mr-2 { margin-right: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Floating Glows -->
+    <div class="glow-container">
+        <div class="glow-1"></div>
+        <div class="glow-2"></div>
+    </div>
+
+    <!-- Floating Notification -->
+    <div id="live-notification" class="notification">
+        <div class="notification-dot-container">
+            <div class="notification-dot"></div>
+            <div class="notification-ping"></div>
+        </div>
+        <text id="notification-message">Andi baru saja membeli Ebook KDP AI</text>
+    </div>
+
+    <!-- --- HEADER --- -->
+    <header>
+        <div class="max-w-5xl px-4 header-container">
+            <div class="logo-area">
+                <div class="logo-box">
+                    <span>K</span>
+                </div>
+                <span class="logo-text">KDP AI Pack</span>
+            </div>
+            <div>
+                <a href="https://lynk.id/chromaticalm/9m9ljpq1erxv" target="_blank" rel="noopener noreferrer" class="btn-header">
+                    Beli Rp27K
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- --- HERO SECTION --- -->
+    <section class="max-w-5xl px-4 hero-section">
+        <!-- Left Side Info -->
+        <div class="hero-left">
+            <div class="badge-container">
+                <span class="badge badge-indigo">Beginner Friendly</span>
+                <span class="badge badge-violet">AI Workflow</span>
+                <span class="badge badge-blue">Digital Asset</span>
+            </div>
+
+            <h1 class="hero-title">
+                Belajar Amazon KDP Pakai AI Bahkan Kalau <span class="gradient-text">Masih Pemula.</span>
+            </h1>
+
+            <p class="hero-desc">
+                Ebook simpel buat mulai bikin aset digital di Amazon KDP + bonus tools AI buat generate interior buku otomatis secara instan.
+            </p>
+
+            <div class="btn-container">
+                <a href="https://lynk.id/chromaticalm/9m9ljpq1erxv" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    Ambil Ebook Rp27K
+                    <!-- ArrowRight Icon -->
+                    <svg class="svg-icon w-5" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side: Mockup -->
+        <div class="hero-right">
+            <div class="backglow"></div>
+            
+            <!-- Premium CSS 3D Ebook Mockup -->
+            <div class="perspective-container">
+                <div class="book-card">
+                    <div class="book-header">
+                        <span>Amazon KDP</span>
+                        <!-- Sparkles Icon -->
+                        <svg class="svg-icon w-5" style="color: #818cf8;" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                    
+                    <div class="book-body">
+                        <p class="subtitle">STARTER SYSTEM</p>
+                        <h3>KDP AI <br><span>PACK</span></h3>
+                        <p class="desc">Otomasi Buku Low Content & Jurnal Premium</p>
+                    </div>
+
+                    <div class="book-footer">
+                        <div class="left">
+                            <p>PDF EBOOK</p>
+                            <p>PASIF INCOME</p>
+                        </div>
+                        <div class="book-indicator">
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pages Simulation Depth -->
+                <div class="book-pages"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SECTION 2: SIMPLE EXPLANATION --- -->
+    <section class="explanation-section">
+        <div class="max-w-4xl px-4">
+            <div class="section-center-text">
+                <h2>“Bukan skema cepat kaya.”</h2>
+                <p>Lebih kayak belajar skill digital yang bisa dipakai global untuk bangun aset jangka panjang.</p>
+            </div>
+
+            <div class="grid-features">
+                <div class="feature-item">
+                    <div class="feature-icon-box indigo">
+                        <!-- Laptop Icon -->
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h4>Bisa dari Laptop</h4>
+                    <p>Dikerjakan santai di mana saja.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box purple">
+                        <!-- Cpu Icon -->
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 5h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
+                    </div>
+                    <h4>Bisa pakai AI</h4>
+                    <p>Otomasi proses riset & desain.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box blue">
+                        <!-- Package Icon -->
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                    </div>
+                    <h4>Tanpa Stok</h4>
+                    <p>Amazon yang urus cetak & kirim.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon-box emerald">
+                        <!-- UserCheck Icon -->
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h4>Cocok Pemula</h4>
+                    <p>Langkah terarah dari nol.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SECTION 3: ISI EBOOK --- -->
+    <section id="inside" class="max-w-4xl px-4 content-section">
+        <div class="section-center-text" style="margin-bottom: 0;">
+            <span class="tagline">DETAIL MATERI</span>
+            <h2 style="font-size: 30px; margin-top: 4px;">Apa Saja Isi Ebooknya?</h2>
+        </div>
+
+        <div class="grid-content">
+            <div class="content-card">
+                <div>
+                    <span class="num">01</span>
+                    <h3>Cara Mulai KDP</h3>
+                    <p>Panduan setup akun dari Indonesia agar lolos verifikasi dengan benar.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div>
+                    <span class="num">02</span>
+                    <h3>Cara Cari Niche</h3>
+                    <p>Mencari kategori profit berperingkat tinggi tapi minim persaingan.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div>
+                    <span class="num">03</span>
+                    <h3>Generate Interior</h3>
+                    <p>Membuat halaman isi buku otomatis & rapi cuma dengan hitungan detik.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div>
+                    <span class="num">04</span>
+                    <h3>Cara Upload Buku</h3>
+                    <p>Mengisi detail metadata, keyword tags, dan kategori agar mudah ditemukan.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div>
+                    <span class="num">05</span>
+                    <h3>AI Tools</h3>
+                    <p>Rekomendasi platform AI gratis & berbayar untuk menghemat waktu.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div>
+                    <span class="num">06</span>
+                    <h3>Prompt Siap Pakai</h3>
+                    <p>Kumpulan kata perintah untuk generate visual cover premium siap jual.</p>
+                </div>
+            </div>
+            <div class="content-card span-all">
+                <div>
+                    <span class="num">07</span>
+                    <h3>Workflow Pemula</h3>
+                    <p>Alur kerja harian yang bisa langsung lo duplikasi tanpa bingung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SECTION 4: AI TOOLS SHOWCASE --- -->
+    <section class="apps-section">
+        <div class="max-w-4xl px-4">
+            <div class="section-center-text" style="margin-bottom: 0;">
+                <span class="tagline">SISTEM INTEGRASI</span>
+                <h2 style="font-size: 30px; margin-top: 4px;">Apps Yang Dipakai</h2>
+            </div>
+
+            <div class="grid-apps">
+                <div class="app-card">
+                    <span class="app-name">ChatGPT</span>
+                    <span class="app-role">Brainstorming Ideas</span>
+                </div>
+                <div class="app-card">
+                    <span class="app-name">Canva</span>
+                    <span class="app-role">Design Templates</span>
+                </div>
+                <div class="app-card">
+                    <span class="app-name">BookBolt</span>
+                    <span class="app-role">Niche Analytics</span>
+                </div>
+                <div class="app-card">
+                    <span class="app-name">Leonardo AI</span>
+                    <span class="app-role">Art Generation</span>
+                </div>
+                <div class="app-card">
+                    <span class="app-name">Midjourney</span>
+                    <span class="app-role">Creative Visuals</span>
+                </div>
+                <div class="app-card">
+                    <span class="app-name">Creative Fabrica</span>
+                    <span class="app-role">Ready Assets</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- SECTION 5: SOCIAL PROOF / PROOF --- -->
+    <section class="max-w-4xl px-4 proof-section">
+        <div class="section-center-text">
+            <span class="tagline">DASHBOARD REPORT</span>
+            <h2 style="font-size: 30px; margin-top: 4px;">Bukti Hasil Proses</h2>
+            <p style="font-size: 12px; color: #525252; margin-top: 8px; max-width: 384px;">
+                Review dan hasil penguploadan buku dari hasil optimasi KDP.
+            </p>
+        </div>
+
+        <div class="grid-proof">
+            <!-- Proof 1 -->
+            <div class="proof-card">
+                <div class="proof-card-header">
+                    <span class="title">KDP Earnings Overview</span>
+                    <span class="value">$1,245.80 USD</span>
+                </div>
+                <div class="proof-card-body">
+                    <div class="proof-icon-container">
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"/></svg>
+                    </div>
+                    <h4>Bukti 1: Laporan Penjualan Real KDP</h4>
+                    <a href="https://drive.google.com/file/d/1f6fu4n3owq9HA0bRIaFHhR2GiLnHNUmm/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-view-proof">
+                        <!-- Eye Icon -->
+                        <svg class="svg-icon w-4 mr-1" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        Buka Gambar Bukti di Drive
+                    </a>
+                </div>
+            </div>
+
+            <!-- Proof 2 -->
+            <div class="proof-card">
+                <div class="proof-card-header">
+                    <span class="title">Royalty Reporting</span>
+                    <span class="value">$432.50 USD / Month</span>
+                </div>
+                <div class="proof-card-body">
+                    <div class="proof-icon-container">
+                        <svg class="svg-icon w-6" viewBox="0 0 24 24"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"/></svg>
+                    </div>
+                    <h4>Bukti 2: Laporan Penjualan Real KDP</h4>
+                    <a href="https://drive.google.com/file/d/1fnRNg5hRgZO6yJ97BCXeS5Glej3Xh2kW/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-view-proof">
+                        <!-- Eye Icon -->
+                        <svg class="svg-icon w-4 mr-1" viewBox="0 0 24 24"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                        Buka Gambar Bukti di Drive
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <p class="proof-footer-note">“Contoh workflow & hasil dari proses KDP.”</p>
+    </section>
+
+    <!-- --- SECTION 6: PRICE & CTA --- -->
+    <section class="max-w-lg px-4 pricing-section">
+        <div class="pricing-backglow"></div>
+
+        <div class="pricing-box">
+            <span class="box-badge">Investasi Terjangkau</span>
+            
+            <h3>Mulai Bangun Aset Digital</h3>
+            <p class="sub">Dapatkan ilmu workflow global KDP AI sekarang.</p>
+
+            <div class="price-container">
+                <span class="slashed">Rp99.000</span>
+                <div class="price-main">
+                    <span class="amount">Rp27.000</span>
+                    <span class="currency">IDR</span>
+                </div>
+            </div>
+
+            <a href="https://lynk.id/chromaticalm/9m9ljpq1erxv" target="_blank" rel="noopener noreferrer" class="btn-pricing">
+                <!-- Download Icon -->
+                <svg class="svg-icon w-5" viewBox="0 0 24 24"><path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                Download Sekarang
+            </a>
+
+            <p class="footer-info">File digital • Akses instan langsung dikirim ke email</p>
+        </div>
+    </section>
+
+    <!-- --- FOOTER --- -->
+    <footer>
+        <div class="footer-inner">
+            <p>“Bukan jaminan cepat kaya. Fokus utama ebook ini adalah belajar workflow dan skill digital.”</p>
+            <p class="copyright">&copy; 2026 KDP AI Pack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- --- JAVASCRIPT SYSTEM --- -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const names = ["Andi", "Fajar", "Siti", "Rian", "Budi", "Dewi", "Raka", "Clara"];
+            const notificationEl = document.getElementById('live-notification');
+            const messageEl = document.getElementById('notification-message');
+
+            function triggerNotification() {
+                // Pilih nama random
+                const randomName = names[Math.floor(Math.random() * names.length)];
+                messageEl.textContent = `${randomName} baru saja membeli Ebook KDP AI`;
+                
+                // Munculkan notifikasi
+                notificationEl.classList.add('show');
+                
+                // Sembunyikan setelah 4 detik
+                setTimeout(() => {
+                    notificationEl.classList.remove('show');
+                }, 4000);
+            }
+
+            // Atur looping interval live notification tiruan (setiap 15 detik)
+            setInterval(triggerNotification, 15000);
+            
+            // Trigger pertama kali setelah halaman di-load 3 detik awal (opsional/opsi interaktif)
+            setTimeout(triggerNotification, 3000);
+        });
+    </script>
+</body>
+</html>
